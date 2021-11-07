@@ -1,0 +1,161 @@
+//layout
+$mobile: 700px;
+$desktop: 1440px;
+
+//colors
+$desaturated-red: hsl(0, 36%, 70%);
+$soft-red: hsl(0, 93%, 68%);
+$dark-greyish-red: hsl(0, 6%, 24%);
+
+//gradients
+$linear-gradient-primary: linear-gradient(
+  135deg,
+  hsl(0, 0%, 100%),
+  hsl(0, 100%, 98%)
+);
+$linear-gradient-secondary: linear-gradient(
+  135deg,
+  hsl(0, 80%, 86%),
+  hsl(0, 74%, 74%)
+);
+
+//font-size
+$font-size: 16px;
+
+//font-family
+$font-family: "Josefin Sans", sans-serif; //300, 400, 600
+
+html,
+body {
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  font-family: $font-family;
+  background: linear-gradient(135deg, hsl(0, 0%, 100%), hsl(0, 100%, 98%));
+  @media (min-width: $mobile) {
+    min-width: $mobile;
+    max-width: $desktop;
+    padding: 0;
+  }
+}
+
+main {
+  max-width: $mobile;
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+  @media (min-width: $mobile) {
+    max-width: $desktop;
+    padding: 1rem;
+    margin: 0 auto;
+  }
+  .header {
+    .logo {
+      padding: 2rem;
+      max-width: 110px;
+      opacity: 0.9;
+      @media (min-width: $mobile) {
+        padding-left: 10rem;
+      }
+    }
+  }
+  .info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin: 0 auto;
+    @media (min-width: $mobile) {
+      flex-direction: row-reverse;
+      flex: 1;
+      padding: 1rem;
+      max-width: 1000px;
+    }
+    .hero {
+      padding: 0;
+      margin: 0;
+      width: 100%;
+      .hero-mobile {
+        display: block;
+        width: 100%;
+        @media (min-width: $mobile) {
+          display: none;
+        }
+      }
+      .hero-desktop {
+        display: none;
+
+        @media (min-width: $mobile) {
+          display: block;
+          max-height: 500px;
+          margin: none;
+        }
+      }
+    }
+
+    .content {
+      @media (min-width: $mobile) {
+        max-width: $desktop;
+        padding: 2rem;
+        flex: 1;
+        margin: 0;
+      }
+      &__header {
+        padding: 1.5rem 2.5rem;
+        text-align: center;
+        text-transform: uppercase;
+        font-size: 40px;
+        letter-spacing: 10px;
+        color: $dark-greyish-red;
+
+        .colorized-text {
+          color: $desaturated-red;
+          font-weight: 300;
+        }
+      }
+      &__description {
+        text-align: center;
+        color: #ce9797;
+        padding: 0 2.5rem;
+        font-weight: 400;
+        opacity: 0.7;
+        font-size: 16px;
+        line-height: 20px;
+        @media (min-width: $mobile) {
+        }
+      }
+    }
+  }
+  form {
+    text-align: center;
+    padding: 1rem 2rem;
+    padding-bottom: 4rem;
+    padding-left: 3.5rem;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    .email {
+      padding: 13px;
+      border-radius: 20px;
+      width: 250px;
+      font-family: $font-family;
+      color: $desaturated-red;
+      border: 0.2px solid $desaturated-red;
+      opacity: 0.5;
+      margin: 0;
+    }
+    .email::placeholder {
+      color: $desaturated-red;
+      opacity: 0.5;
+    }
+    button {
+      border: none;
+      background: linear-gradient(135deg, hsl(0, 80%, 86%), hsl(0, 74%, 74%));
+      padding: 10px 20px;
+      border-radius: 25px;
+      position: relative;
+      right: 30px;
+      cursor: pointer;
+    }
+  }
+}
